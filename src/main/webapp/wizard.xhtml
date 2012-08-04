@@ -26,7 +26,8 @@
     	<h:form>
     	<p:growl id="growl" sticky="true" showDetail="true"/>  
     	     <p:wizard widgetVar="wiz"  
-            flowListener="#{userWizard.onFlowProcess}" styleClass="ui-tabs-vertical">  
+            flowListener="#{userWizard.onFlowProcess}" styleClass="ui-tabs-vertical"
+            showNavBar="false" >  
       
         <p:tab id="personal" title="Personal">  
   
@@ -143,7 +144,10 @@
         </p:tab>  
           
     </p:wizard>  
-
+<h:outputLink value="#" onclick="wiz.next();">Next</h:outputLink>
+<h:outputLink value="#" onclick="wiz.back();">Back</h:outputLink>
+<p:commandButton value="Submit" update="growl"   
+                            actionListener="#{userWizard.save}"/> 
     	</h:form>
     </h:body>
 </html>

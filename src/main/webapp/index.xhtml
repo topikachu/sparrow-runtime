@@ -12,7 +12,7 @@
     	<h3>JSF 2.0 Hello World Example - hello.xhtml</h3>
     	<h:form>
     	   #{helloBean.name}
-
+		<h:commandButton action="#{helloBean.startProcess()}" value="start process" />
     	</h:form>
     </h:body>
 </html>

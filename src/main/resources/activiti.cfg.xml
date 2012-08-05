@@ -16,7 +16,7 @@
 			    <property name="jpaPersistenceUnitName" value="sparrow-runtime" />
 			    <property name="jpaHandleTransaction" value="true" />
 			    <property name="jpaCloseEntityManager" value="true" />
-                <property name="databaseSchemaUpdate" value="true" />
+                <!-- <property name="databaseSchemaUpdate" value="true" /> -->
                 <property name="transactionManager" ref="transactionManager" />
         </bean>
 

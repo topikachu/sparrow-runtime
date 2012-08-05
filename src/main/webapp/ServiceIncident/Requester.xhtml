@@ -5,7 +5,10 @@
       xmlns:f="http://java.sun.com/jsf/core"      
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:p="http://primefaces.org/ui">
+ <f:metadata>
  
+    <f:event type="preRenderView" listener="#{serviceIncidentWizard.start}" />
+</f:metadata>
     <h:head>
         <title>Service Incident Requester</title>
     </h:head>

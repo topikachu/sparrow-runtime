@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:jee="http://www.springframework.org/schema/jee"
+        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee-2.5.xsd"
+        >
+
+        <!-- lookup the JTA-Transaction manager -->
+		<jee:jndi-lookup jndi-name="java:appserver/TransactionManager" id="transactionManager" />
+
+        <!-- process engine configuration -->
+
+        <bean id="processEngineConfiguration"
+                class="org.activiti.cdi.CdiJtaProcessEngineConfiguration">
+                <property name="dataSourceJndiName" value="jdbc/sparrow" />
+			    <property name="jpaPersistenceUnitName" value="sparrow-runtime" />
+			    <property name="jpaHandleTransaction" value="true" />
+			    <property name="jpaCloseEntityManager" value="true" />
+                <property name="databaseSchemaUpdate" value="true" />
+                <property name="transactionManager" ref="transactionManager" />
+        </bean>
+
+</beans>
+        

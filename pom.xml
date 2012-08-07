@@ -137,5 +137,10 @@
   <artifactId>spring-context</artifactId>
   <version>3.0.3.RELEASE</version>
 </dependency>
+		<dependency>
+			<groupId>com.ocpsoft</groupId>
+			<artifactId>prettyfaces-jsf2</artifactId>
+			<version>3.3.3</version>
+		</dependency>
 	</dependencies>
 </project>

@@ -6,18 +6,19 @@
         >
 
         <!-- lookup the JTA-Transaction manager -->
-		<jee:jndi-lookup jndi-name="java:appserver/TransactionManager" id="transactionManager" />
+		<jee:jndi-lookup jndi-name="java:/jboss/TransactionManager" id="transactionManager" />
 
         <!-- process engine configuration -->
 
         <bean id="processEngineConfiguration"
                 class="org.activiti.cdi.CdiJtaProcessEngineConfiguration">
-                <property name="dataSourceJndiName" value="jdbc/sparrow" />
+                <property name="dataSourceJndiName" value="java:jboss/sparrow" />
 			    <property name="jpaPersistenceUnitName" value="sparrow-runtime" />
 			    <property name="jpaHandleTransaction" value="true" />
 			    <property name="jpaCloseEntityManager" value="true" />
                 <!-- <property name="databaseSchemaUpdate" value="true" /> -->
                 <property name="transactionManager" ref="transactionManager" />
+                <property name="transactionsExternallyManaged" value="true"/>
         </bean>
 
 </beans>

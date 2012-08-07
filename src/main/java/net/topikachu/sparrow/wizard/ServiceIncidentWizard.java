@@ -8,14 +8,18 @@ import javax.enterprise.context.ConversationScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
 
+import com.ocpsoft.pretty.faces.annotation.URLMapping;
+
 @Named
 @ConversationScoped
+@URLMapping(id = "ServiceIncidentWizard", pattern = "/ServiceIncident/", viewId = "#{serviceIncidentWizard.start}")
 public class ServiceIncidentWizard implements Serializable {
 	@Inject Conversation conversation;
-	public void start(){
+	public String start(){
 		if (conversation.isTransient()){
 		conversation.begin();
 		}
+		return "Requester.xhtml?faces-redirect=true";
 	}
 	
 	public String next(){
